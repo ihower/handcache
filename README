@@ -1,0 +1,14 @@
+
+handcache use ActiveSupport::Cache::MemCacheStore to provide get_and_set method and compressed feature.
+
+== USAGE
+
+Add below line to your environment.rb
+
+CacheStore = ActiveSupport::Cache::MemCacheStore.new("localhost")
+
+Then in your code:
+
+data = Handcache.get_and_set("data-123", :expires_in => 60 ) do
+          "cached-foobar"
+       end
