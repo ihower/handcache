@@ -1,11 +1,17 @@
 
-handcache use ActiveSupport::Cache::MemCacheStore to provide get_and_set method and compressed feature.
+handcache use Moneta(http://github.com/wycats/moneta) to provide get_and_set method and compressed feature.
 
 == USAGE
 
+Moneta provide many stores, for example:
+
 Add below line to your environment.rb
 
-CacheStore = ActiveSupport::Cache::MemCacheStore.new("localhost")
+CacheStore = Moneta::Memory.new
+
+or
+
+CacheStore = Moneta::Memcache.new( :server => "127.0.0.1" )
 
 Then in your code:
 
